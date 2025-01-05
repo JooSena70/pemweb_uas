@@ -7,7 +7,7 @@ use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/register', function () {
     return view('auth.register'); // Halaman pendaftaran
