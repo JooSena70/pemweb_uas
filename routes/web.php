@@ -3,10 +3,21 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/register', function () {
+    return view('auth.register'); // Halaman pendaftaran
+})->name('register');
+
+Route::get('/login', function () {
+    return view('auth.login'); // Halaman login
+})->name('login');
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
