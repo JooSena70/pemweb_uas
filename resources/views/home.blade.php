@@ -46,16 +46,19 @@
     <header class="gradient-primary text-white fixed w-full z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
+                <!-- Logo -->
+                <a href="{{ url('/') }}" class="flex items-center space-x-2">
                     <i class="fas fa-recycle text-2xl"></i>
                     <h1 class="text-2xl font-bold">Bank Sampah</h1>
-                </div>
+                </a>
+                <!-- Navigation Links -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#tentang" class="nav-link">Tentang Kami</a>
                     <a href="#layanan" class="nav-link">Layanan</a>
                     <a href="#lokasi" class="nav-link">Lokasi</a>
                     <a href="#hubungi" class="nav-link">Kontak</a>
                 </nav>
+                <!-- Auth Buttons -->
                 <div class="flex space-x-4">
                     <a href="{{ route('register') }}" class="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300">Daftar</a>
                     <a href="{{ route('login') }}" class="border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-teal-600 transition duration-300">Masuk</a>
