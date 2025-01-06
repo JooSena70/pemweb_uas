@@ -29,7 +29,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
 
-route::get('admin/dashboard',[HomeController::class, 'index'])->middleware(['auth','admin']);//deklarasikan middleware admin
+
+route::get('admin/dashboard',[HomeController::class, 'index'])->middleware(['auth','admin'])->name('admin.dashboard');;//deklarasikan middleware admin
 //nama class 'index' harus disambungkan ke controller masing-masing
+
+require __DIR__.'/auth.php';
