@@ -164,8 +164,7 @@
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Hubungi Kami</h3>
             <div class="max-w-2xl mx-auto">
-                <form action="{{ route('contact.submit') }}" method="POST" class="gradient-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
-                    @csrf
+                <form action="{{ route('login') }}" method="GET" class="gradient-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
                     <div class="mb-6">
                         <label class="block text-gray-700 mb-2" for="name">Nama Lengkap</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500" required>
@@ -183,6 +182,7 @@
             </div>
         </div>
     </section>
+
     
     <!-- Footer -->
     <footer class="gradient-primary text-white py-12">
