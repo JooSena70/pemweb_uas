@@ -153,11 +153,9 @@
         <div class="user-profile">
             <button onclick="toggleDropdown()" class="profile-button">
                 {{ Auth::user()->name }}
-                <!-- Tambahkan ikon dropdown di sini jika diinginkan -->
                 ▼
             </button>
             <div class="dropdown-menu" id="userDropdown">
-                <a href="{{ route('profile.edit') }}">Profile</a>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <a href="{{ route('logout') }}"
