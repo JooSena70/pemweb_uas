@@ -100,28 +100,46 @@
     <section id="layanan" class="py-20">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Layanan Kami</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-truck text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Penjemputan Sampah</h4>
-                    <p class="text-gray-600">Layanan penjemputan sampah langsung ke lokasi Anda dengan jadwal yang fleksibel.</p>
-                </div>
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Card 1 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-wallet text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Penukaran Poin</h4>
-                    <p class="text-gray-600">Tukarkan poin sampah Anda dengan berbagai reward menarik.</p>
-                </div>
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold mb-4">Saldo Bank Sampah</h4>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-book-reader text-white text-2xl"></i>
+                        <i class="fas fa-list text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Edukasi</h4>
-                    <p class="text-gray-600">Program edukasi pengelolaan sampah untuk masyarakat.</p>
-                </div>
+                    <h4 class="text-xl font-bold mb-4">Riwayat Transaksi</h4>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Jadwal Pengambilan Sampah</h4>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-exchange-alt text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Penukaran Saldo</h4>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Edukasi dan Tips</h4>
+                </a>
             </div>
         </div>
     </section>
