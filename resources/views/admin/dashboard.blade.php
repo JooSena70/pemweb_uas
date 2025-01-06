@@ -171,6 +171,7 @@
     <nav class="sidebar" id="sidebar">
         <ul class="sidebar-menu">
             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('profile.edit') }}">Profile</a></li>
         </ul>
     </nav>
 
