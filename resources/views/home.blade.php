@@ -46,16 +46,19 @@
     <header class="gradient-primary text-white fixed w-full z-50">
         <div class="container mx-auto px-4 py-3">
             <div class="flex justify-between items-center">
-                <div class="flex items-center space-x-2">
+                <!-- Logo -->
+                <a href="{{ url('/') }}" class="flex items-center space-x-2">
                     <i class="fas fa-recycle text-2xl"></i>
                     <h1 class="text-2xl font-bold">Bank Sampah</h1>
-                </div>
+                </a>
+                <!-- Navigation Links -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#tentang" class="nav-link">Tentang Kami</a>
                     <a href="#layanan" class="nav-link">Layanan</a>
                     <a href="#lokasi" class="nav-link">Lokasi</a>
                     <a href="#hubungi" class="nav-link">Kontak</a>
                 </nav>
+                <!-- Auth Buttons -->
                 <div class="flex space-x-4">
                     <a href="{{ route('register') }}" class="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300">Daftar</a>
                     <a href="{{ route('login') }}" class="border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-teal-600 transition duration-300">Masuk</a>
@@ -100,28 +103,46 @@
     <section id="layanan" class="py-20">
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Layanan Kami</h3>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-truck text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Penjemputan Sampah</h4>
-                    <p class="text-gray-600">Layanan penjemputan sampah langsung ke lokasi Anda dengan jadwal yang fleksibel.</p>
-                </div>
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
+                <!-- Card 1 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-wallet text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Penukaran Poin</h4>
-                    <p class="text-gray-600">Tukarkan poin sampah Anda dengan berbagai reward menarik.</p>
-                </div>
-                <div class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h4 class="text-xl font-bold mb-4">Saldo Bank Sampah</h4>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-book-reader text-white text-2xl"></i>
+                        <i class="fas fa-list text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Edukasi</h4>
-                    <p class="text-gray-600">Program edukasi pengelolaan sampah untuk masyarakat.</p>
-                </div>
+                    <h4 class="text-xl font-bold mb-4">Riwayat Transaksi</h4>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Jadwal Pengambilan Sampah</h4>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-exchange-alt text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Penukaran Saldo</h4>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Edukasi dan Tips</h4>
+                </a>
             </div>
         </div>
     </section>
@@ -146,8 +167,7 @@
         <div class="container mx-auto px-4">
             <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Hubungi Kami</h3>
             <div class="max-w-2xl mx-auto">
-                <form action="{{ route('contact.submit') }}" method="POST" class="gradient-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
-                    @csrf
+                <form action="{{ route('login') }}" method="GET" class="gradient-card p-8 rounded-xl shadow-lg" data-aos="fade-up">
                     <div class="mb-6">
                         <label class="block text-gray-700 mb-2" for="name">Nama Lengkap</label>
                         <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-teal-500" required>
@@ -165,6 +185,7 @@
             </div>
         </div>
     </section>
+
     
     <!-- Footer -->
     <footer class="gradient-primary text-white py-12">
