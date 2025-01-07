@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
@@ -172,6 +173,7 @@
         <ul class="sidebar-menu">
             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('profile.edit') }}">Profile</a></li>
+            <li><a href="{{ route('admin.usermanagement.index') }}">User Management</a></li>
         </ul>
     </nav>
 
