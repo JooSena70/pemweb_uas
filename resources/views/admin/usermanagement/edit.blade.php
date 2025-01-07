@@ -2,7 +2,7 @@
 @extends('admin.dashboard')
 
 @section('content')
-    <div class="p-6 bg-[#22b2a6] rounded-lg">
+    <div class="p-6 bg-[#34495e] rounded-lg">
         <h2 class="text-3xl font-mono text-white mb-4">Edit User</h2>
 
         <form action="{{ route('admin.usermanagement.update', $user) }}" method="POST">
@@ -10,7 +10,7 @@
             @method('PUT')
 
             <div class="mb-4">
-                <label for="name" class="block text-black text-xl font-mono mb-2">Name</label>
+                <label for="name" class="block text-white text-xl font-mono mb-2">Name</label>
                 <input type="text" name="name" id="name" 
                        value="{{ old('name', $user->name) }}"
                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -20,7 +20,7 @@
             </div>
 
             <div class="mb-4">
-                <label for="email" class="block text-black text-xl font-mono mb-2">Email</label>
+                <label for="email" class="block text-white text-xl font-mono mb-2">Email</label>
                 <input type="email" name="email" id="email" 
                        value="{{ old('email', $user->email) }}"
                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
