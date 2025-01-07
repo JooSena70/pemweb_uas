@@ -3,12 +3,12 @@
 
 @section('content')
 <div class="container mx-auto px-4">
-    <div class="bg-[#22b2a6] p-6 rounded-lg shadow-lg">
+    <div class="bg-[#34495e] p-6 rounded-lg shadow-lg">
         <h2 class="text-3xl font-mono mb-6  text-white">User Management</h2>
 
         @if(session('success'))
-            <div class="bg-[#FFFFFF] border border-green-800 text-green-600 px-4 py-3 rounded relative mb-4">
-                {{ session('success') }}
+            <div class="bg-[#FFFFFF] border-green-800 text-green-500 px-4 py-3 rounded relative mb-4">
+                {{ session('success')}}
             </div>
         @endif
 
