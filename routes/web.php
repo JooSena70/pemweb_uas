@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\UserManagementController;
 
 Route::get('/', function () {
     return view('home');
@@ -27,6 +28,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/usermanagement', [UserManagementController::class, 'index'])->name('admin.usermanagement.index');
+    Route::delete('/admin/usermanagement/{user}', [UserManagementController::class, 'destroy'])->name('admin.usermanagement.destroy');
+    Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class, 'edit'])->name('admin.usermanagement.edit');
+    Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
 });
 
 
