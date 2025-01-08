@@ -90,7 +90,7 @@
         .sidebar {
             background-color: #34495e;
             color: white;
-            width: 210px;
+            width: 240px;
             height: 100vh;
             position: fixed;
             top: 0;
@@ -174,6 +174,7 @@
             <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('profile.edit') }}">Profile</a></li>
             <li><a href="{{ route('admin.usermanagement.index') }}">User Management</a></li>
+            <li><a href="{{ route('admin.informasisampah.index') }}">Informasi Sampah</a></li>
         </ul>
     </nav>
 
