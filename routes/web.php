@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\UserManagementController;
+use App\Http\Controllers\Admin\InformasiSampahController;
 
 Route::get('/', function () {
     return view('home');
@@ -42,4 +43,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 route::get('admin/dashboard',[HomeController::class, 'index'])->middleware(['auth','admin'])->name('admin.dashboard');;//deklarasikan middleware admin
 //nama class 'index' harus disambungkan ke controller masing-masing
 
+Route::resource('admin/informasisampah', InformasiSampahController::class, [
+    'as' => 'admin',
+    'parameters' => ['informasisampah' => 'sampah']
+]);
 require __DIR__.'/auth.php';
