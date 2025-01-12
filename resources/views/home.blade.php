@@ -58,11 +58,39 @@
                     <a href="#lokasi" class="nav-link">Lokasi</a>
                     <a href="#hubungi" class="nav-link">Kontak</a>
                 </nav>
-                <!-- Auth Buttons -->
-                <div class="flex space-x-4">
-                    <a href="{{ route('register') }}" class="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300">Daftar</a>
-                    <a href="{{ route('login') }}" class="border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-teal-600 transition duration-300">Masuk</a>
-                </div>
+<!-- Auth Buttons -->
+<div class="flex space-x-4">
+    @auth
+        <div class="relative">
+            <button 
+                onclick="toggleDropdown()"
+                class="flex items-center space-x-2 bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300">
+                <span>{{ Auth::user()->name }}</span>
+                <i class="fas fa-chevron-down text-sm"></i>
+            </button>
+            <!-- Dropdown Menu -->
+            <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 hidden">
+                <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Profile</a>
+                <form method="POST" action="{{ route('logout') }}" class="block">
+                    @csrf
+                    <button type="submit" class="w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100">
+                        Logout
+                    </button>
+                </form>
+            </div>
+        </div>
+    @else
+        <a href="{{ route('register') }}" class="bg-white text-teal-600 px-6 py-2 rounded-full hover:bg-gray-100 transition duration-300">Daftar</a>
+        <a href="{{ route('login') }}" class="border-2 border-white text-white px-6 py-2 rounded-full hover:bg-white hover:text-teal-600 transition duration-300">Masuk</a>
+    @endauth
+</div>
+
+<script>
+    function toggleDropdown() {
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('hidden');
+    }
+</script>
             </div>
         </div>
     </header>
