@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\TukarSampahController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
 use App\Http\Controllers\ContactController;
@@ -9,7 +10,7 @@ use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Admin\InformasiSampahController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('user.home');
 })->name('home');
 
 Route::get('/register', function () {
@@ -39,8 +40,6 @@ Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class
 Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
 });
 
-
-
 route::get('admin/dashboard',[HomeController::class, 'index'])->middleware(['auth','admin'])->name('admin.dashboard');;//deklarasikan middleware admin
 //nama class 'index' harus disambungkan ke controller masing-masing
 
@@ -50,7 +49,7 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
 ]);
 require __DIR__.'/auth.php';
 
-Route::get('user/jadwal', function () {
-    return view('user.jadwal'); // Card Jadwal
+Route::get('user/jadwalsampah/jadwal', function () {
+    return view('user.jadwalsampah.jadwal'); // Card Jadwal
 })->name('jadwal');
 
