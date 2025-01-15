@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
@@ -18,10 +19,6 @@ Route::get('/register', function () {
 Route::get('/login', function () {
     return view('auth.login'); // Halaman login
 })->name('login');
-
-Route::get('user/jadwal', function () {
-    return view('user.jadwal'); // Card
-})->name('jadwal');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
@@ -52,3 +49,8 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
     'parameters' => ['informasisampah' => 'sampah']
 ]);
 require __DIR__.'/auth.php';
+
+Route::get('user/jadwal', function () {
+    return view('user.jadwal'); // Card Jadwal
+})->name('jadwal');
+
