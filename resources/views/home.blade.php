@@ -149,7 +149,7 @@
                 </a>
 
                 <!-- Card 3 -->
-                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                <a href="{{ route('jadwal') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-calendar text-white text-2xl"></i>
                     </div>

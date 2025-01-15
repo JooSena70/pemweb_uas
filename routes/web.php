@@ -19,6 +19,10 @@ Route::get('/login', function () {
     return view('auth.login'); // Halaman login
 })->name('login');
 
+Route::get('user/jadwal', function () {
+    return view('user.jadwal'); // Card
+})->name('jadwal');
+
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('/dashboard', function () {
@@ -32,10 +36,10 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/usermanagement', [UserManagementController::class, 'index'])->name('admin.usermanagement.index');
-    Route::delete('/admin/usermanagement/{user}', [UserManagementController::class, 'destroy'])->name('admin.usermanagement.destroy');
-    Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class, 'edit'])->name('admin.usermanagement.edit');
-    Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
+Route::get('/admin/usermanagement', [UserManagementController::class, 'index'])->name('admin.usermanagement.index');
+Route::delete('/admin/usermanagement/{user}', [UserManagementController::class, 'destroy'])->name('admin.usermanagement.destroy');
+Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class, 'edit'])->name('admin.usermanagement.edit');
+Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
 });
 
 
