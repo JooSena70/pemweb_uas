@@ -138,14 +138,14 @@
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-wallet text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Tukar Sampah</h4>
+                    <h4 class="text-xl font-bold mb-4">Setor Sampah</h4>
                 </a>
                 @else 
                 <a href={{ route('login') }} class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-wallet text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Tukar Sampah</h4>
+                    <h4 class="text-xl font-bold mb-4">Setor Sampah</h4>
                 </a>
                 @endguest
 

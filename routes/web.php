@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\User\TukarSampahController;
+use App\Http\Controllers\SetorController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
+use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Admin\InformasiSampahController;
@@ -49,7 +49,20 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
 ]);
 require __DIR__.'/auth.php';
 
+// Route::resource('user/setorsampah', SetorController::class, [
+//     'parameters' => ['setorsampah' => 'setoran']
+// ]);
+
+
+Route::get('user/setorsampah', [SetorController::class, 'create'])->name('user.setorsampah.create');
+
+Route::get('user/setorsampah/index', [SetorController::class, 'index'])->name('user.setorsampah.index');
+Route::post('user/setorsampah/index', [SetorController::class, 'store'])->name('user.setorsampah.store');
+
 Route::get('user/jadwalsampah/jadwal', function () {
     return view('user.jadwalsampah.jadwal'); // Card Jadwal
 })->name('jadwal');
 
+Route::get('user/dashboard', function () {
+    return view('user.dashboard'); // Card Jadwal
+})->name('user.dashboard');

@@ -34,7 +34,11 @@ class AuthenticatedSessionController extends Controller
             return redirect('admin/dashboard');
             //Jika pengguna memiliki level bernilai 'admin', pengguna akan diarahkan ke admin/dashboard.
         }
-
+        else if($request->user()-> level ==='user')
+        {
+            return redirect('user/dashboard');
+            //Jika pengguna memiliki level bernilai 'admin', pengguna akan diarahkan ke admin/dashboard.
+        }
         return redirect()->intended('/');
     }
 
