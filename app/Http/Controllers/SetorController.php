@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Setoran;
+use App\Models\Sampah;
 use Illuminate\Http\Request;
 
 class SetorController extends Controller
 {
     public function index ()
     {
-        $setor = Setoran::all();
-        return view('user.setorsampah.index',compact('setor'));
+        $sampah = Sampah::all();
+        return view('user.setorsampah.index',compact('sampah'));
     }
 
     public function create()
