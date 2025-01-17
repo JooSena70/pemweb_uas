@@ -38,7 +38,7 @@
                             <td class="px-6 py-4 text-sm text-gray-700">{{ $item->tanggal }}</td>
                             <td class="px-6 py-4 text-sm text-gray-700">Rp {{ number_format($item->total, 0, ',', '.') }}</td>
                             <td class="px-6 py-4 text-sm text-gray-700">
-                                <span class="px-3 py-1 rounded-full text-white {{ $item->status === 'Belum Di Verifikasi' ? 'bg-red-500' : 'bg-green-500' }}">
+                                <span class="px-3 py-1 rounded-full text-black {{ $item->status === 'Belum Di Verifikasi' ? 'Sudah di verifikasi' : 'Belum di verifikasi' }}">
                                     {{ $item->status }}
                                 </span>
                             </td>
@@ -46,9 +46,9 @@
                                 <form action="{{ route('admin.riwayattranksasi.update', $item->id) }}" method="POST" class="inline">
                                     @csrf
                                     @method('PUT')
-                                    <input type="hidden" name="status" value="{{ $item->status == 'Belum Di Verifikasi' ? 'Sudah Di Verifikasi' : 'Belum Di Verifikasi' }}">
-                                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-300">
-                                        {{ $item->status == 'Belum Di Verifikasi' ? 'Verifikasi' : 'Batalkan' }}
+                                    <input type="hidden" name="status" value="{{ $item->status == 'Belum di verifikasi' ? 'Sudah di verifikasi' : 'Belum di verifikasi' }}">
+                                    <button type="submit" class="text-red-500 hover:text-red-700">
+                                        {{ $item->status == 'Belum Di verifikasi' ? 'Sudah di verifikasi' : 'Verifikasi' }}
                                     </button>
                                 </form>
                             </td>
