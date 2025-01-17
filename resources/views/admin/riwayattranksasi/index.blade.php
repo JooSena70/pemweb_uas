@@ -1,59 +1,56 @@
 @extends('admin.dashboard')
 
 @section('content')
-    <div class="p-6 bg-[#34495e] rounded-lg shadow-lg">
-        <div class="flex justify-between items-center mb-4">
-            <h2 class="text-3xl font-mono mb-6  text-white">Konfirmasi Tranksasi</h2>
+    <div class="p-6 bg-gradient-to-br from-gray-800 via-gray-700 to-gray-900 rounded-lg shadow-lg">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-3xl font-bold text-white">Konfirmasi Transaksi</h2>
         </div>
 
         @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
+            <div class="bg-green-500/20 border-l-4 border-green-500 text-white px-4 py-3 rounded-lg mb-6 shadow-md">
                 {{ session('success') }}
             </div>
         @endif
 
-        <div class="overflow-x-auto">
-            <table class="min-w-full bg-white">
-                <thead class="bg-gray-100">
+        <div class="overflow-x-auto rounded-lg shadow-lg">
+            <table class="min-w-full bg-white rounded-lg">
+                <thead class="bg-gradient-to-r from-teal-500 to-green-500 text-white">
                     <tr>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">No</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Nama User</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Nama Sampah</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Berat (Kg)</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Alamat</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Tanggal</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Total</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider text-center">Action</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">No</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Nama User</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Nama Sampah</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Berat (Kg)</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Alamat</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Tanggal</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Total</th>
+                        <th class="px-6 py-4 text-left text-sm font-semibold tracking-wide uppercase">Status</th>
+                        <th class="px-6 py-4 text-center text-sm font-semibold tracking-wide uppercase">Aksi</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="divide-y divide-gray-200">
                     @foreach($setor as $index => $item)
-                        <tr>
-                        <td class="px-6 py-4 border-b">{{ $index + 1 }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->nama_user }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->nama_sampah }}</td>
-                        <td class="px-6 py-4 border-b">{{ number_format($item->berat, 0, ',', '.') }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->alamat }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->tanggal }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->total }}</td>
-                        <td class="px-6 py-4 border-b">{{ $item->status}}</td>
-                        <td class="px-6 py-4 border-b text-center">
-                                <div class="flex justify-center space-x-2">
-                                    <form action="{{ route('admin.riwayattranksasi.update', $item->id) }}" method="POST" style="display:inline;"
-                                       class="text-blue-600 hover:text-blue-900">
-                                       @csrf
-                                       @method('PUT')
-                                       <input type="hidden" name="status" value="{{ $item->status == 'Belum Di Verifikasi' ? 'Belum Di Verifikasi' : 'Sudah Di Verifikasi' }}">
-                                       <button type="submit">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-                                            </svg>
-                                       </button>
-                                        
-                                    </form>
-                                </div>
+                        <tr class="hover:bg-gray-100 transition duration-300">
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ $index + 1 }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ $item->nama_user }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ $item->nama_sampah }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ number_format($item->berat, 0, ',', '.') }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ $item->alamat }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">{{ $item->tanggal }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">Rp {{ number_format($item->total, 0, ',', '.') }}</td>
+                            <td class="px-6 py-4 text-sm text-gray-700">
+                                <span class="px-3 py-1 rounded-full text-white {{ $item->status === 'Belum Di Verifikasi' ? 'bg-red-500' : 'bg-green-500' }}">
+                                    {{ $item->status }}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <form action="{{ route('admin.riwayattranksasi.update', $item->id) }}" method="POST" class="inline">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="hidden" name="status" value="{{ $item->status == 'Belum Di Verifikasi' ? 'Sudah Di Verifikasi' : 'Belum Di Verifikasi' }}">
+                                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-md transition duration-300">
+                                        {{ $item->status == 'Belum Di Verifikasi' ? 'Verifikasi' : 'Batalkan' }}
+                                    </button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
