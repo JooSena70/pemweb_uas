@@ -1,4 +1,3 @@
-<!-- resources/views/admin/dashboard.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +13,13 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
         }
 
         .header {
-            background-color: #22b2a6;
+            background: linear-gradient(90deg, #22b2a6, #20c997);
             color: white;
             padding: 1rem;
             position: fixed;
@@ -28,6 +29,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
@@ -41,11 +43,9 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 0.5rem;
             margin-right: 1rem;
         }
 
-        /* User Profile Dropdown */
         .user-profile {
             position: relative;
             cursor: pointer;
@@ -55,21 +55,28 @@
             background: none;
             border: none;
             color: white;
-            padding: 0.5rem;
+            padding: 0.5rem 1rem;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease;
+        }
+
+        .profile-button:hover {
+            background-color: rgba(255, 255, 255, 0.2);
         }
 
         .dropdown-menu {
             position: absolute;
             right: 0;
-            top: 100%;
+            top: calc(100% + 0.5rem);
             background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            min-width: 200px;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             display: none;
+            width: 200px;
         }
 
         .dropdown-menu.active {
@@ -77,10 +84,11 @@
         }
 
         .dropdown-menu a {
-            color: #333;
+            color: #374151;
             padding: 0.75rem 1rem;
             text-decoration: none;
             display: block;
+            transition: background-color 0.2s ease;
         }
 
         .dropdown-menu a:hover {
@@ -88,15 +96,16 @@
         }
 
         .sidebar {
-            background-color: #34495e;
+            background: linear-gradient(180deg, #34495e, #2c3e50);
             color: white;
-            width: 240px;
+            width: 260px;
             height: 100vh;
             position: fixed;
             top: 0;
-            left: -250px;
+            left: -260px;
             padding-top: 80px;
-            transition: all 0.3s ease;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar.active {
@@ -114,27 +123,27 @@
 
         .sidebar-menu a {
             color: white;
-            background-color: #22b2a6;
+            background-color: rgba(255, 255, 255, 0.1);
             text-decoration: none;
             display: block;
-            padding: 0.75rem 1rem;
-            border-radius: 4px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.5rem;
             transition: all 0.3s ease;
         }
 
         .sidebar-menu a:hover {
-            background-color: #2c3e50;
+            background-color: rgba(255, 255, 255, 0.2);
             transform: translateX(5px);
         }
 
         .main-content {
             margin-left: 0;
-            padding: 5rem 1rem 1rem;
-            transition: all 0.3s ease;
+            padding: 6rem 1rem 2rem;
+            transition: margin-left 0.3s ease;
         }
 
         .main-content.active {
-            margin-left: 250px;
+            margin-left: 260px;
         }
 
         @media (max-width: 768px) {
@@ -148,9 +157,9 @@
     <header class="header">
         <div class="header-left">
             <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-            <span>Admin Dashboard</span>
+            <span class="font-bold">Admin Dashboard</span>
         </div>
-        
+
         <div class="user-profile">
             <button onclick="toggleDropdown()" class="profile-button">
                 {{ Auth::user()->name }}
@@ -175,16 +184,15 @@
             <li><a href="{{ route('profile.edit') }}">Profile</a></li>
             <li><a href="{{ route('admin.usermanagement.index') }}">User Management</a></li>
             <li><a href="{{ route('admin.informasisampah.index') }}">Informasi Sampah</a></li>
-            <li><a href="{{ route('admin.riwayattranksasi.index') }}">Riwayat Tranksasi</a></li>
+            <li><a href="{{ route('admin.riwayattranksasi.index') }}">Riwayat Transaksi</a></li>
         </ul>
     </nav>
 
     <main class="main-content" id="main-content">
-        <!-- Header section seperti di Breeze -->
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">
+                    <div class="p-6 text-gray-700">
                         @yield('content')
                     </div>
                 </div>
@@ -196,7 +204,6 @@
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('main-content');
-            
             sidebar.classList.toggle('active');
             mainContent.classList.toggle('active');
         }
@@ -206,7 +213,6 @@
             dropdown.classList.toggle('active');
         }
 
-        // Menutup dropdown saat mengklik di luar
         window.onclick = function(event) {
             if (!event.target.matches('.profile-button')) {
                 const dropdowns = document.getElementsByClassName('dropdown-menu');
@@ -216,7 +222,7 @@
                     }
                 }
             }
-        }
+        };
     </script>
 </body>
 </html>
