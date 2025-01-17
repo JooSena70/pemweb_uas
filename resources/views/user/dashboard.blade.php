@@ -173,7 +173,7 @@
         <ul class="sidebar-menu">
             <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
             <li><a href="{{ route('profile.edit') }}">Profile</a></li>
-            <li><a href="{{ route('admin.usermanagement.index') }}">Riwayat Tranksasi</a></li>
+            <li><a href="{{ route('user.riwayattranksasi.index') }}">Riwayat Tranksasi</a></li>
             <li><a href="{{ route('user.setorsampah.index') }}">Setor Sampah</a></li>
         </ul>
     </nav>

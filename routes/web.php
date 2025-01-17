@@ -3,6 +3,7 @@
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SetorController;
+use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\ContactController;
@@ -49,20 +50,16 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
 ]);
 require __DIR__.'/auth.php';
 
-// Route::resource('user/setorsampah', SetorController::class, [
-//     'parameters' => ['setorsampah' => 'setoran']
-// ]);
-
-
 Route::get('user/setorsampah', [SetorController::class, 'create'])->name('user.setorsampah.create');
-
 Route::get('user/setorsampah/index', [SetorController::class, 'index'])->name('user.setorsampah.index');
 Route::post('user/setorsampah/index', [SetorController::class, 'store'])->name('user.setorsampah.store');
 
+Route::get('user/riwayattranksasi/index', [RiwayatController::class, 'index'])->name('user.riwayattranksasi.index');
+
 Route::get('user/jadwalsampah/jadwal', function () {
-    return view('user.jadwalsampah.jadwal'); // Card Jadwal
+    return view('user.jadwalsampah.jadwal'); 
 })->name('jadwal');
 
 Route::get('user/dashboard', function () {
-    return view('user.dashboard'); // Card Jadwal
+    return view('user.dashboard'); 
 })->name('user.dashboard');
