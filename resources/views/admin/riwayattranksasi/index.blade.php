@@ -1,9 +1,9 @@
-@extends('user.dashboard')
+@extends('admin.dashboard')
 
 @section('content')
     <div class="p-6 bg-[#34495e] rounded-lg shadow-lg">
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-3xl font-mono mb-6  text-white">Riwayat Tranksasi</h2>
+            <h2 class="text-3xl font-mono mb-6  text-white">Konfirmasi Tranksasi</h2>
         </div>
 
         @if(session('success'))
@@ -24,10 +24,11 @@
                     <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Tanggal</th>
                     <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Total</th>
                     <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-4 border-b border-gray-300 text-left text-xm font-mono text-gray-600 uppercase tracking-wider text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($setor as $index => $item)
+                    @foreach($setor as $index => $item)
                         <tr>
                         <td class="px-6 py-4 border-b">{{ $index + 1 }}</td>
                         <td class="px-6 py-4 border-b">{{ $item->nama_user }}</td>
@@ -38,6 +39,22 @@
                         <td class="px-6 py-4 border-b">{{ $item->total }}</td>
                         <td class="px-6 py-4 border-b">{{ $item->status}}</td>
                         <td class="px-6 py-4 border-b text-center">
+                                <div class="flex justify-center space-x-2">
+                                    <form action="{{ route('admin.riwayattranksasi.update', $item->id) }}" method="POST" style="display:inline;"
+                                       class="text-blue-600 hover:text-blue-900">
+                                       @csrf
+                                       @method('PUT')
+                                       <input type="hidden" name="status" value="{{ $item->status == 'Belum Di Verifikasi' ? 'Belum Di Verifikasi' : 'Sudah Di Verifikasi' }}">
+                                       <button type="submit">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                            </svg>
+                                       </button>
+                                        
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

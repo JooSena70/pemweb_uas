@@ -50,6 +50,10 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
 ]);
 require __DIR__.'/auth.php';
 
+Route::get('admin/riwayattranksasi/index', [RiwayatController::class, 'index2'])->name('admin.riwayattranksasi.index');
+Route::put('admin/riwayattranksasi/index/{id}', [RiwayatController::class, 'update'])->name('admin.riwayattranksasi.update');
+
+
 Route::get('user/setorsampah', [SetorController::class, 'create'])->name('user.setorsampah.create');
 Route::get('user/setorsampah/index', [SetorController::class, 'index'])->name('user.setorsampah.index');
 Route::post('user/setorsampah/index', [SetorController::class, 'store'])->name('user.setorsampah.store');

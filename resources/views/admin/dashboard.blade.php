@@ -175,6 +175,7 @@
             <li><a href="{{ route('profile.edit') }}">Profile</a></li>
             <li><a href="{{ route('admin.usermanagement.index') }}">User Management</a></li>
             <li><a href="{{ route('admin.informasisampah.index') }}">Informasi Sampah</a></li>
+            <li><a href="{{ route('admin.riwayattranksasi.index') }}">Riwayat Tranksasi</a></li>
         </ul>
     </nav>
 

@@ -60,6 +60,13 @@
                     <h3 class="text-2xl font-bold text-center text-gray-800 mb-8">
                         Masuk ke Akun Anda
                     </h3>
+                    
+                    <!-- Flash Message -->
+                    @if (session('status'))
+                        <div class="alert alert-success text-green-500 bg-green-100 p-4 rounded-md mb-4">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
                     <form method="POST" action="{{ route('login') }}" class="space-y-6">
                         @csrf

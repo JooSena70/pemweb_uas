@@ -35,16 +35,17 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // Membuat user baru
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
+        // Menyebarkan event Registered
         event(new Registered($user));
 
-        Auth::login($user);
-
-        return redirect(route('dashboard', absolute: false));
+        // Tidak langsung login, tapi kembali ke halaman login
+        return redirect(route('login'))->with('status', 'Registration successful. Please log in.');
     }
 }
