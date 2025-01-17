@@ -57,18 +57,18 @@ li {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Harian Setoran Sampah</title>
+    <title>Jadwal Pengambilan Sampah</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>JADWAL HARIAN SETORAN SAMPAH</h1>
+        <h1>JADWAL PENGAMBILAN SAMPAH</h1>
         <p>Berikut merupakan jenis sampah yang dapat disetorkan berdasarkan harinya. Jadwal penyerahan dapat dilakukan pada hari-hari sesuai dengan keterangan di bawah.</p>
         <div class="schedule">
             <div class="day">
                 <h2>SENIN</h2>
                 <ul>
-                    <li>Sampah Hasil Masak</li>
+                    <li>Sampah Sisa Makanan</li>
                     <li>Dedauan</li>
                     <li>Kresek</li>
                     <li>Plastik</li>
@@ -77,7 +77,7 @@ li {
             <div class="day">
                 <h2>SELASA</h2>
                 <ul>
-                    <li>Sampah Hasil Masak</li>
+                    <li>Sampah Sisa Makanan</li>
                     <li>Botol Mineral Plastik</li>
                     <li>Botol Mineral Kaca</li>
                     <li>Sepatu/Sandal</li>
@@ -86,7 +86,7 @@ li {
             <div class="day">
                 <h2>RABU</h2>
                 <ul>
-                    <li>Sampah Hasil Masak</li>
+                    <li>Sampah Sisa Makanan</li>
                     <li>Dedauan</li>
                     <li>Gelas Mineral Plastik</li>
                     <li>Karah Warna</li>
