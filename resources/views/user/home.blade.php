@@ -133,44 +133,72 @@
             <h3 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Layanan Kami</h3>
             <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
                 <!-- Card 1 -->
+                 @guest
                 <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-wallet text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Saldo Bank Sampah</h4>
+                    <h4 class="text-xl font-bold mb-4">Setor Sampah</h4>
                 </a>
+                @else 
+                <a href={{ route('login') }} class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-wallet text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Setor Sampah</h4>
+                </a>
+                @endguest
 
                 <!-- Card 2 -->
+                 @guest
                 <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-list text-white text-2xl"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Riwayat Transaksi</h4>
+                    <h4 class="text-xl font-bold mb-4">Riwayat Penukaran</h4>
                 </a>
-
+                @else
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-list text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Riwayat Penukaran</h4>
+                </a>
+                @endguest
+                
                 <!-- Card 3 -->
+                @guest
                 <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-calendar text-white text-2xl"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-4">Jadwal Pengambilan Sampah</h4>
                 </a>
+                @else
+                <a href="{{ route('jadwal') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-calendar text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Jadwal Pengambilan Sampah</h4>
+                </a>
+                @endguest
 
                 <!-- Card 4 -->
-                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-exchange-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-xl font-bold mb-4">Penukaran Saldo</h4>
-                </a>
-
-                <!-- Card 5 -->
+                 @guest
                 <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
                     <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
                         <i class="fas fa-lightbulb text-white text-2xl"></i>
                     </div>
                     <h4 class="text-xl font-bold mb-4">Edukasi dan Tips</h4>
                 </a>
+                @else
+                <a href="{{ route('login') }}" class="service-card gradient-card p-6 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 gradient-primary rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-lightbulb text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Edukasi dan Tips</h4>
+                </a>
+                @endguest
             </div>
         </div>
     </section>
