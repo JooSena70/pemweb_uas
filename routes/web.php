@@ -1,14 +1,17 @@
 <?php
 
+use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SetorController;
+use App\Http\Controllers\RiwayatController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController; //menambahkan controller ke web.php
+use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\Admin\InformasiSampahController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('user.home');
 })->name('home');
 
 Route::get('/register', function () {
@@ -32,13 +35,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/usermanagement', [UserManagementController::class, 'index'])->name('admin.usermanagement.index');
-    Route::delete('/admin/usermanagement/{user}', [UserManagementController::class, 'destroy'])->name('admin.usermanagement.destroy');
-    Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class, 'edit'])->name('admin.usermanagement.edit');
-    Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
+Route::get('/admin/usermanagement', [UserManagementController::class, 'index'])->name('admin.usermanagement.index');
+Route::delete('/admin/usermanagement/{user}', [UserManagementController::class, 'destroy'])->name('admin.usermanagement.destroy');
+Route::get('/admin/usermanagement/{user}/edit', [UserManagementController::class, 'edit'])->name('admin.usermanagement.edit');
+Route::put('/admin/usermanagement/{user}', [UserManagementController::class, 'update'])->name('admin.usermanagement.update');
 });
-
-
 
 route::get('admin/dashboard',[HomeController::class, 'index'])->middleware(['auth','admin'])->name('admin.dashboard');;//deklarasikan middleware admin
 //nama class 'index' harus disambungkan ke controller masing-masing
@@ -48,3 +49,21 @@ Route::resource('admin/informasisampah', InformasiSampahController::class, [
     'parameters' => ['informasisampah' => 'sampah']
 ]);
 require __DIR__.'/auth.php';
+
+Route::get('admin/riwayattranksasi/index', [RiwayatController::class, 'index2'])->name('admin.riwayattranksasi.index');
+Route::put('admin/riwayattranksasi/index/{id}', [RiwayatController::class, 'update'])->name('admin.riwayattranksasi.update');
+
+
+Route::get('user/setorsampah', [SetorController::class, 'create'])->name('user.setorsampah.create');
+Route::get('user/setorsampah/index', [SetorController::class, 'index'])->name('user.setorsampah.index');
+Route::post('user/setorsampah/index', [SetorController::class, 'store'])->name('user.setorsampah.store');
+
+Route::get('user/riwayattranksasi/index', [RiwayatController::class, 'index'])->name('user.riwayattranksasi.index');
+
+Route::get('user/jadwalsampah/jadwal', function () {
+    return view('user.jadwalsampah.jadwal'); 
+})->name('jadwal');
+
+Route::get('user/dashboard', function () {
+    return view('user.dashboard'); 
+})->name('user.dashboard');

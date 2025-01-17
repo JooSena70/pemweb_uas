@@ -148,7 +148,7 @@
     <header class="header">
         <div class="header-left">
             <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-            <span>Admin Dashboard</span>
+            <span>User Dashboard</span>
         </div>
         
         <div class="user-profile">
@@ -171,11 +171,9 @@
 
     <nav class="sidebar" id="sidebar">
         <ul class="sidebar-menu">
-            <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li><a href="{{ route('profile.edit') }}">Profile</a></li>
-            <li><a href="{{ route('admin.usermanagement.index') }}">User Management</a></li>
-            <li><a href="{{ route('admin.informasisampah.index') }}">Informasi Sampah</a></li>
-            <li><a href="{{ route('admin.riwayattranksasi.index') }}">Riwayat Tranksasi</a></li>
+            <li><a href="{{ route('user.dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ route('user.riwayattranksasi.index') }}">Riwayat Tranksasi</a></li>
+            <li><a href="{{ route('user.setorsampah.index') }}">Setor Sampah</a></li>
         </ul>
     </nav>
 
